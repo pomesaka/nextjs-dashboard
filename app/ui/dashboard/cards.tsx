@@ -1,3 +1,4 @@
+import { fetchCardData } from "@/app/lib/data";
 import { lusitana } from "@/app/ui/fonts";
 import {
   BanknotesIcon,
@@ -13,17 +14,14 @@ const iconMap = {
   invoices: InboxIcon,
 };
 
-export default async function CardWrapper({
-  numberOfCustomers,
-  numberOfInvoices,
-  totalPaidInvoices,
-  totalPendingInvoices,
-}: {
-  numberOfCustomers: number;
-  numberOfInvoices: number;
-  totalPaidInvoices: string;
-  totalPendingInvoices: string;
-}) {
+export default async function CardWrapper() {
+  const {
+    numberOfInvoices,
+    numberOfCustomers,
+    totalPaidInvoices,
+    totalPendingInvoices,
+  } = await fetchCardData();
+
   return (
     <>
       <Card title="Collected" value={totalPaidInvoices} type="collected" />
