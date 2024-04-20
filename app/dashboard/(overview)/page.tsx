@@ -7,7 +7,15 @@ import {
   LatestInvoicesSkeleton,
   RevenueChartSkeleton,
 } from "@/app/ui/skeletons";
+import type { Metadata } from "next";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Dashboard",
+    default: "Dashboard",
+  },
+};
 
 export default async function Page() {
   return (
